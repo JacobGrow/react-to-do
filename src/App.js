@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import Button from 'react-bootstrap/Button';
 
 class App extends Component {
 constructor(props){
@@ -48,15 +49,22 @@ deleteItem(id){
   render() {
     return (
       <div className="App">
+        <div className="container-fluid">
+          <div className="row mt-5">
+            <div className="col-6 mx-auto">
+
+
+
+
         <div>
         Add an Item...
         <br/>
-        <input
+        <input className="form-control"
           type="text"
           placeholder="Type item here..."
           value={this.state.newItem}
           onChange={e => this.updateInput("newItem", e.target.value)} />
-          <button
+          <button className="btn btn-secondary"
             onClick={() => this.addItem()}
             >
               Add
@@ -65,9 +73,9 @@ deleteItem(id){
             <ul>
               {this.state.list.map(item => {
                 return(
-                    <li key={item.id}>
+                  <li key={item.id}>
                       {item.value}
-                      <button onClick={() => this.deleteItem(item.id)}>  
+                      <button className="btn btn-primary" onClick={() => this.deleteItem(item.id)}>  
                       X
                       </button>
                     </li>
@@ -75,8 +83,11 @@ deleteItem(id){
               })}
 
             </ul>
+              </div>
         </div>
       </div>
+              </div>
+                </div>
     )
   }
 
